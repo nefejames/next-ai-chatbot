@@ -11,9 +11,6 @@ import { toast } from "sonner";
 import remarkGfm from "remark-gfm";
 import { MemoizedReactMarkdown } from "./Markdown";
 
-export const dynamic = "force-dynamic";
-export const maxDuration = 30;
-
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -44,6 +41,19 @@ export default function Chat() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      !e.nativeEvent.isComposing // Check if text is still being composed
+    ) {
+      e.preventDefault();
+      if (input.trim().length > 0) {
+        handleSubmit(e);
+      }
+    }
+  };
+
   return (
     <div className="stretch mx-auto w-full max-w-2xl px-4 pb-[8rem] pt-[2rem] md:px-0">
       {messages.map((m, i) => (
@@ -70,6 +80,7 @@ export default function Chat() {
         input={input}
         setInput={setInput}
         handleSubmit={handleSubmit}
+        handleKeyDown={handleKeyDown}
       />
     </div>
   );
