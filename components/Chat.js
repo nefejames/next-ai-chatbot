@@ -11,6 +11,9 @@ import { toast } from "sonner";
 import remarkGfm from "remark-gfm";
 import { MemoizedReactMarkdown } from "./Markdown";
 
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
+
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
