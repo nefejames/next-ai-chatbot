@@ -7,7 +7,6 @@ import ChatInput from "./ChatInput";
 import { readStreamableValue } from "ai/rsc";
 import { FaUserAstronaut } from "react-icons/fa6";
 import { continueConversation } from "../app/actions";
-import { toast } from "sonner";
 import remarkGfm from "remark-gfm";
 import { MemoizedReactMarkdown } from "./Markdown";
 
@@ -40,7 +39,7 @@ export default function Chat() {
         ]);
       }
     } catch (error) {
-      toast.error(error.message);
+      console.error(error.message);
     }
   };
 
