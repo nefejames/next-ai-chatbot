@@ -1,17 +1,14 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { FaRobot } from "react-icons/fa6";
-import ChatInput from "./ChatInput";
+import { cn } from "@/lib/utils";
+import { continueConversation } from "@/lib/actions";
 import { readStreamableValue } from "ai/rsc";
+import { FaRobot } from "react-icons/fa6";
 import { FaUserAstronaut } from "react-icons/fa6";
-import { continueConversation } from "../app/actions";
 import remarkGfm from "remark-gfm";
+import ChatInput from "./ChatInput";
 import { MemoizedReactMarkdown } from "./Markdown";
-
-export const dynamic = "force-dynamic";
-export const maxDuration = 30;
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
