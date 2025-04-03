@@ -24,17 +24,6 @@ export default function ChatInput({
             <Button disabled={input.length === 0} />
           </div>
         </div>
-        <p className="p-2 text-center text-xs text-zinc-400">
-          Inspired by {""}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2 transition-all duration-150 ease-linear md:hover:text-nvidia"
-            href="https://github.com/lakshaybhushan/nextjs-nvidia-chatbot"
-          >
-            lakshaybhushan
-          </a>
-        </p>
       </div>
     </form>
   );
