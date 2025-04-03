@@ -9,7 +9,7 @@ export default function ChatInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className="fixed bottom-0 left-0 right-0 flex justify-center dark:from-background"
+      className="fixed bottom-0 left-0 right-0 flex justify-center dark:from-background mb-5"
     >
       <div className="w-full max-w-2xl items-center px-6">
         <div className="relative flex w-full flex-col items-start gap-2">
