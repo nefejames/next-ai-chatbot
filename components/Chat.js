@@ -8,11 +8,13 @@ import { FaRobot } from "react-icons/fa6";
 import { FaUserAstronaut } from "react-icons/fa6";
 import remarkGfm from "remark-gfm";
 import ChatInput from "./ChatInput";
-import { MemoizedReactMarkdown } from "./Markdown";
+import ReactMarkdown from "react-markdown";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+
+  const remarkPlugins = [remarkGfm];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +36,8 @@ export default function Chat() {
             content: content,
           },
         ]);
+
+        console.log(messages);
       }
     } catch (error) {
       console.error(error.message);
@@ -68,9 +72,9 @@ export default function Chat() {
             {m.role === "user" ? <FaUserAstronaut /> : <FaRobot />}
           </div>
           <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-            <MemoizedReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown remarkPlugins={remarkPlugins}>
               {m.content}
-            </MemoizedReactMarkdown>
+            </ReactMarkdown>
           </div>
         </div>
       ))}
